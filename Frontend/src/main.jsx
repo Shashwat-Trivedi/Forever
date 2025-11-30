@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import PlaceOrder from './pages/PlaceOrder';
 import Orders from './pages/Orders';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ShopContextProvider from './context/ShopContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     element: <Routes />,
     children: [
       {
-        path: 'home',
+        path: '',
         element: <Home />,
       },
       {
@@ -60,6 +61,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ShopContextProvider>
+      <RouterProvider router={router} />
+    </ShopContextProvider>
   </StrictMode>
 );
