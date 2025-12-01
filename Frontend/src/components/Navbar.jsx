@@ -75,6 +75,15 @@ const Navbar = () => {
             <p>Back</p>
           </div>
           <NavLink
+            className="py-2 pl-6 border-t border-b border-gray-300"
+            onClick={() => {
+              setVisible(false);
+            }}
+            to="/"
+          >
+            HOME
+          </NavLink>
+          <NavLink
             className="py-2 pl-6 border-t border-t-gray-300"
             onClick={() => {
               setVisible(false);
@@ -100,15 +109,6 @@ const Navbar = () => {
             to="/contact"
           >
             CONTACT
-          </NavLink>
-          <NavLink
-            className="py-2 pl-6 border-t border-b border-gray-300"
-            onClick={() => {
-              setVisible(false);
-            }}
-            to="/"
-          >
-            HOME
           </NavLink>
         </div>
       </div>
