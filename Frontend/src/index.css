@@ -22,3 +22,7 @@ a.active hr {
     @apply bg-black text-white;
   }
 }
+
+::-webkit-scrollbar{
+  display: none;
+}

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import Routes from './routes.jsx';
+import Routes from './Routes.jsx';
 import Home from './pages/home';
 import Collection from './pages/Collection';
 import About from './pages/About';
