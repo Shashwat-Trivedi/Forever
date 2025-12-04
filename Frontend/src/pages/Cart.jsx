@@ -29,9 +29,9 @@ const Cart = () => {
   } , [cartItems])
 
   return (
-    <div className='border-t pt-14'>
+    <div className='border-t border-gray-200 pt-14'>
 
-      <div className="text-2xl mb-3 border-b border-gray-400">
+      <div className="text-2xl mb-3 border-b border-gray-200">
         <Title text1={'MY'} text2={'CART'} />
       </div>
 
@@ -42,7 +42,7 @@ const Cart = () => {
             const productData = products.find((product) => product._id === item._id);
 
             return (
-              <div key={index} className='py-4 border-b border-gray-400 text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center'>
+              <div key={index} className='py-4 border-b border-gray-200 text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center'>
                 <div className="flex items-start gap-6">
                   <img src={productData.image[0]} alt="" className="w-16 sm:w-20" />
                   <div>
@@ -53,7 +53,7 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <input onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,item.size,Number(e.target.value))} className='border border-gray-400 max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' type="number" min={1} defaultValue={item.quantity} />
+                <input onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,item.size,Number(e.target.value))} className='border border-gray-200 max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' type="number" min={1} defaultValue={item.quantity} />
                 <img onClick={() => updateQuantity(item._id,item.size,0)} src={assets.bin_icon} alt="" className="w-4 mr-4 sm:w-5 cursor-pointer" />
               </div>
             )
