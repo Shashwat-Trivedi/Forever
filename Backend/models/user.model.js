@@ -10,4 +10,6 @@ const userSchema = new Schema(
   { minimize: false, timestamps: true }
 );
 
+userSchema.pre('findOneAndUpdate',async function (next) {} )
+
 export const User = mongoose.model('User', userSchema);
