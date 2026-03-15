@@ -21,8 +21,10 @@ app.get('/' , (req , res ) => {
 // Routes
 
 import userRoutes from './routes/user.routes.js';
+import productRoutes from './routes/product.routes.js';
 
-app.use('/api/users' , userRoutes); 
+app.use('/api/user' , userRoutes); 
+app.use('/api/product' , productRoutes); 
 
 
 export { app };
