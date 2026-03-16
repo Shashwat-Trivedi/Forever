@@ -12,18 +12,18 @@ const router = Router();
 router.post(
   '/add',
   upload.fields([
-    { name: image1, maxCount: 1 },
-    { name: image2, maxCount: 1 },
-    { name: image3, maxCount: 1 },
-    { name: image4, maxCount: 1 },
+    { name: 'image1', maxCount: 1 },
+    { name: 'image2', maxCount: 1 },
+    { name: 'image3', maxCount: 1 },
+    { name: 'image4', maxCount: 1 },
   ]),
   addProduct
 );
 
-router.get('/', listProducts);
+router.get('/list', listProducts);
 
-router.delete('/:id', removeProduct);
+router.post('/remove', removeProduct);
 
-router.get('/:id', singleProduct);
+router.post('/single', singleProduct);
 
 export default router;
