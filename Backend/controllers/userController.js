@@ -3,6 +3,7 @@ import { ApiError } from '../config/ApiError.js';
 import { ApiResponse } from '../config/ApiResponse.js';
 import { User } from '../models/user.model.js';
 import validator from 'validator';
+import jwt from 'jsonwebtoken';
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET )
@@ -95,11 +96,33 @@ const Login = asyncHandler(async (req, res) => {
 // Route for admin Login
 const AdminLogin = asyncHandler(async (req, res) => {
   // Admin login logic here
+
+  const { email, password } = req.body;
+
+  if (email.trim() === '' || password.trim() === '') {
+    throw new ApiError(400, 'All fields are required');
+  }
+
+  if (email !== process.env.ADMIN_EMAIL || password !== process.env.ADMIN_PASSWORD) {
+    throw new ApiError(401, 'Invalid admin credentials');
+  }
+
+  const token = jwt.sign({ email, password }, process.env.JWT_SECRET);
+
+  if (!token) {
+    throw new ApiError(500, 'Failed to generate token');
+  }
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, null, 'Admin login successful', token));
 });
 
 // Route for user Logout
 const Logout = asyncHandler(async (req, res) => {
   // Logout logic here
+
+  
 });
 
 export { Register, Login, AdminLogin, Logout };
