@@ -21,17 +21,28 @@ const addProduct = asyncHandler(async (req, res) => {
 
   const images = [image1, image2, image3, image4].filter((item) => item != undefined);
 
-  const imageURLs = await Promise.all(
+  console.log(images);
+
+  const uploaded = await Promise.all(
     images.map(async (image) => {
-      const result = await uploadOnCloudnary(image.path);
-      return result?.secure_url;
+      try {
+        const result = await uploadOnCloudnary(image.path);
+        return result?.secure_url ?? null;
+      } catch (err) {
+        return null;
+      }
     })
   );
 
-  if (!imageURLs.length) {
+  const imageURLs = uploaded.filter(Boolean);
+
+console.log(imageURLs);
+
+  if (!imageURLs.length || imageURLs.length !== images.length) {
     return res.status(400).json(new ApiError(400, 'Failed to upload images'));
   }
 
+  console.log(imageURLs);
   try {
     const product = await Product.create({
       name,
