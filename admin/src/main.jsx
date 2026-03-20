@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Orders from './pages/Orders';
 import List from './pages/List';
 import Add from './pages/Add';
+import 'react-toastify'
 
 const router = createBrowserRouter([
   { 

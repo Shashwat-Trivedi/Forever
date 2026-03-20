@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
+import Sidebar from './components/Sidebar.jsx';
 
 
 function App() {
@@ -10,9 +11,14 @@ function App() {
 
   return (
     <> 
-      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-        <ToastContainer />
+    <ToastContainer />
+      <div className="min-h-screen bg-gray-50">
+        
         <Navbar />
+        <hr className='border-gray-300' />
+        <div className="flex w-full">
+          <Sidebar />
+        </div>
         <Outlet />
       </div>
     </>
