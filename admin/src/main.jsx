@@ -17,7 +17,6 @@ const router = createBrowserRouter([
       { path: "list", element: <List /> },
       { path: "add", element: <Add /> },
     ],
-
   },
 ]);
 
