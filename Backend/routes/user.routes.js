@@ -5,7 +5,7 @@ const router = Router();
 
 router.post('/register' , Register);
 router.post('/login' , Login);
-router.post('/admin/login' , AdminLogin);
+router.post('/admin' , AdminLogin);
 router.post('/logout' , Logout);    
 
 
